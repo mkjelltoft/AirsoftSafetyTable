@@ -1,0 +1,62 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>5b7e4f60-23ea-4b3b-a86a-1207b6c6a4b8</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>dataAnalyzer.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>AirsoftSafetyTable</Name>
+    <RootNamespace>AirsoftSafetyTable</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AirsoftSafetyTableGenerator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="notes\AirsoftSafetyTable.py" />
+    <Compile Include="notes\AirsoftSafetyTable2020.py" />
+    <Compile Include="notes\AirsoftSafetyTableVSAF2020.py" />
+    <Compile Include="dataAnalyzer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableAnalyzer.py" />
+    <Compile Include="notes\plotSine.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TableComparator.py" />
+    <Compile Include="TableFormatter.py" />
+    <Compile Include="notes\AirsoftSafetyTableVsaf2019.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="output\" />
+    <Folder Include="notes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\HK416_30.csv" />
+    <Content Include="data\krytac_25.csv" />
+    <Content Include="data\krytac_30.csv" />
+    <Content Include="data\ssg24_30.csv" />
+    <Content Include="data\ssg24_45.csv" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

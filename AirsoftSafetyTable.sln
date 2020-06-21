@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "AirsoftSafetyTable", "AirsoftSafetyTable\AirsoftSafetyTable.pyproj", "{5B7E4F60-23EA-4B3B-A86A-1207B6C6A4B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B7E4F60-23EA-4B3B-A86A-1207B6C6A4B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B7E4F60-23EA-4B3B-A86A-1207B6C6A4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E0D8B2A-22A2-44F9-8C9A-43BAFA817700}
+	EndGlobalSection
+EndGlobal
