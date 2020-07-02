@@ -51,7 +51,7 @@ def formatLatexTable(masses, \
     file = open(outputFile, "w")
     file.write(tableString)
     file.close()
-    return ""
+    return tableString
 
 # ********** Test *************************************************************
 #test_masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45])/100000 # kg

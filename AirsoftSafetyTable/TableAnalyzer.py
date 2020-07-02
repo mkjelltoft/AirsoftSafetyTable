@@ -3,7 +3,7 @@ import TableComparator
 import AirsoftSafetyTableGenerator
 
 # ********** Load *************************************************************
-massesOld, distancesOld, velocitiesOld = AirsoftSafetyTableGenerator.getVsaf2019Table()
+massesOld, distancesOld, velocitiesOld, constant = AirsoftSafetyTableGenerator.get2020Table()
 massesNew, distancesNew, velocitiesNew, constant = AirsoftSafetyTableGenerator.getVsaf2020Table()
 
 # ********** Compute **********************************************************
@@ -19,7 +19,7 @@ impactEnergyDiff = TableComparator.compareImpactEnergies(velocitiesOld, massesOl
 # ********** Print ************************************************************
 np.set_printoptions(linewidth=100, suppress=True)
 
-print("Masses", np.array2string(massesOld, prefix="Masses ", separator=', ', precision=1))
+print("Masses", np.array2string(massesOld*1000, prefix="Masses ", separator=', ', precision=2))
 print("Distances", np.array2string(distancesOld, prefix="Distances ", separator=', ', precision=1))
 print("MuzzleVelocitiesOld", np.array2string(velocitiesOld, prefix="MuzzleVelocitiesOld ", separator=', ', precision=1))
 print("MuzzleVelocitiesNew", np.array2string(velocitiesNew, prefix="MuzzleVelocitiesNew ", separator=', ', precision=1))
@@ -33,7 +33,7 @@ print("ImpactEnergyDiff", np.array2string(impactEnergyDiff, prefix="ImpactEnergy
 
 # ********** Write ************************************************************
 file = open("output/tableAnalyzerOutput.txt", "w")
-file.write("Masses " + np.array2string(massesOld, prefix="Masses ", separator=', ', precision=1) + "\n")
+file.write("Masses " + np.array2string(massesOld*1000, prefix="Masses ", separator=', ', precision=2) + "\n")
 file.write("Distances " + np.array2string(distancesOld, prefix="Distances ", separator=', ', precision=1) + "\n")
 file.write("MuzzleVelocitiesOld " + np.array2string(velocitiesOld, prefix="MuzzleVelocitiesOld ", separator=', ', precision=1) + "\n")
 file.write("MuzzleVelocitiesNew " + np.array2string(velocitiesNew, prefix="MuzzleVelocitiesNew ", separator=', ', precision=1) + "\n")

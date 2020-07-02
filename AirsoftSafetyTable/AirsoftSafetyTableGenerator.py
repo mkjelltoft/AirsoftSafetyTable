@@ -1,7 +1,7 @@
 import numpy as np
 import TableFormatter as tf
 
-def getTable(masses, distances, energiesMuzzle, energiesImpact, classNames):
+def getTable(masses, distances, energiesMuzzle, energiesImpact, classNames, dragCoefficient = 0.477):
     """
     Parameters
     ----------
@@ -31,7 +31,7 @@ def getTable(masses, distances, energiesMuzzle, energiesImpact, classNames):
     density = 1.225 # kg/m^3 (15 degC, 1 atm)
     characteristicLength = 0.006 # m (diameter of projectile)
     area = np.pi * (characteristicLength/2)**2 # m^2
-    dragCoefficient = 0.477 # unitless
+    #dragCoefficient = 0.477 # unitless
 
     constant = 0.5 * dragCoefficient * density * area
 
@@ -61,8 +61,8 @@ def getTable(masses, distances, energiesMuzzle, energiesImpact, classNames):
     np.set_printoptions(linewidth=100)
     print(np.array2string(muzzleVelocities, precision=1))
 
-    print(tf.formatLatexTable(masses, distances, muzzleVelocities, \
-       "output/latexTable.txt", classNames))
+    tf.formatLatexTable(masses, distances, muzzleVelocities, \
+       "output/latexTable.txt", classNames)
 
     # ********** Return the results ***********************************************
     return masses, distances, muzzleVelocities, constant
@@ -79,6 +79,7 @@ def getVsaf2019Table():
                                  [182.9, 163.6, 154.6, 149.3, 140.3, 136.2, 129.2, 124.7, 121.9],
                                  [213.4, 190.8, 180.3, 174.2, 163.6, 159.0, 150.8, 145.5, 142.2]]); # m/s
     classNames = ["CQB\t", "AutoA", "AutoB", "HMG", "Semi", "BoltA", "BoltB"]
+    dummyConstant = 0
 
     # ********** Print output *****************************************************
     np.set_printoptions(linewidth=100)
@@ -88,10 +89,11 @@ def getVsaf2019Table():
        "output/latexTable.txt", classNames))
     
     # ********** Return the results ***********************************************
-    return masses, distances, muzzleVelocities
+    return masses, distances, muzzleVelocities, dummyConstant
 
 def getVsaf2020Table():
-    masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45])/100000 #, 48, 50])/100000 # kg
+    masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45, 48, 50])/100000 # kg
+    #masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45])/100000 # kg
     distances = np.array([0, 5, 10, 20, 20, 30, 40]) # m
     energiesMuzzle = np.array([1, 1.34, 1.76, 2.11, 2.51, 3.34, 4.55]) # J (max energy at muzzle)
     energiesImpact = np.array([1, 1, 1, 1.08, 1.16, 1.16, 1.16]) # J (max energy at safety distance)
@@ -100,10 +102,18 @@ def getVsaf2020Table():
 
 def get2020Table():
     masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45, 48, 50])/100000 # kg
-    distances = np.array([0, 5, 10, 20, 30, 40]) # m
-    energiesMuzzle = np.array([1.2, 1.45, 1.7, 2.2, 3, 4]) # J (max energy at muzzle)
-    energiesImpact = np.array([1, 1, 1, 1, 1, 1]) * 1.2 # J (max energy at safety distance)
-    classNames = ["CQB\t", "Assault 1", "Assault 2", "DMR", "Sniper 1", "Sniper 2"]
+    distances = np.array([0, 5, 10, 20, 20, 30, 40]) # m
+    energiesMuzzle = np.array([1.2, 1.45, 1.7, 2.2, 2.2, 3, 4]) # J (max energy at muzzle)
+    energiesImpact = np.array([1, 1, 1, 1, 1, 1, 1]) * 1.2 # J (max energy at safety distance)
+    classNames = ["CQB 2\t", "Assault 1", "Assault 2", "Support 3", "DMR", "Sniper 1", "Sniper 2"]
     return getTable(masses, distances, energiesMuzzle, energiesImpact, classNames)
+
+def get2020TableDragCoeff04():
+    masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45, 48, 50])/100000 # kg
+    distances = np.array([0, 5, 10, 20, 20, 30, 40]) # m
+    energiesMuzzle = np.array([1.2, 1.45, 1.7, 2.2, 2.2, 3, 4]) # J (max energy at muzzle)
+    energiesImpact = np.array([1, 1, 1, 1, 1, 1, 1]) * 1.2 # J (max energy at safety distance)
+    classNames = ["CQB 2\t", "Assault 1", "Assault 2", "Support 3", "DMR", "Sniper 1", "Sniper 2"]
+    return getTable(masses, distances, energiesMuzzle, energiesImpact, classNames, 0.4)
 
 getVsaf2020Table()
