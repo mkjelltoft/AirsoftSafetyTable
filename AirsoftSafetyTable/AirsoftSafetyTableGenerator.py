@@ -93,7 +93,8 @@ def getVsaf2019Table():
     return masses, distances, muzzleVelocities, dummyConstant
 
 def getVsaf2020Table():
-    masses = np.array([20, 25, 28, 30, 32, 34, 36, 40, 43, 45, 46, 48, 50, 58])/100000 # kg
+    masses = np.array([20, 25, 28, 30, 32, 36, 40, 45, 46, 48, 49, 50])/100000 # kg
+    #masses = np.array([20, 25, 28, 30, 32, 34, 36, 40, 43, 45, 46, 48, 50, 58])/100000 # kg
     #masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45, 48, 50])/100000 # kg
     #masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45])/100000 # kg
     distances = np.array([0, 5, 10, 20, 20, 30, 40]) # m
