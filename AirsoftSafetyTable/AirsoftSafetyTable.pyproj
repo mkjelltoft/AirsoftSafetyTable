@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5b7e4f60-23ea-4b3b-a86a-1207b6c6a4b8</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TableAnalyzer.py</StartupFile>
+    <StartupFile>AirsoftSafetyTableGenerator.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

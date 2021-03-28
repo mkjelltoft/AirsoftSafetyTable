@@ -61,8 +61,9 @@ def getTable(masses, distances, energiesMuzzle, energiesImpact, classNames, drag
     np.set_printoptions(linewidth=100)
     print(np.array2string(muzzleVelocities, precision=1))
 
-    tf.formatLatexTable(masses, distances, muzzleVelocities, \
-       "output/latexTable.txt", classNames)
+    tf.formatLatexTable(masses, distances, muzzleVelocities, classNames, "output/latexTable.txt")
+
+    tf.formatHtmlTable(masses, distances, muzzleVelocities, classNames, "output/htmlTable.html", False)
 
     # ********** Return the results ***********************************************
     return masses, distances, muzzleVelocities, constant
@@ -92,7 +93,8 @@ def getVsaf2019Table():
     return masses, distances, muzzleVelocities, dummyConstant
 
 def getVsaf2020Table():
-    masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45, 48, 50])/100000 # kg
+    masses = np.array([20, 25, 28, 30, 32, 34, 36, 40, 43, 45, 46, 48, 50, 58])/100000 # kg
+    #masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45, 48, 50])/100000 # kg
     #masses = np.array([20, 25, 28, 30, 34, 36, 40, 43, 45])/100000 # kg
     distances = np.array([0, 5, 10, 20, 20, 30, 40]) # m
     energiesMuzzle = np.array([1, 1.34, 1.76, 2.11, 2.51, 3.34, 4.55]) # J (max energy at muzzle)
