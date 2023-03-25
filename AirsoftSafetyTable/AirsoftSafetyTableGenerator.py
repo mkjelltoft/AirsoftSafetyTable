@@ -37,7 +37,7 @@ def getTable(masses, distances, energiesMuzzle, energiesImpact, classNames, drag
     #diameter = 0.006 # m (characteristic length i.e. diameter of projectile)
     area = np.pi * (diameter/2)**2 # m^2
     
-    constant = 0.5 * diameter * density * area
+    constant = 0.5 * dragCoefficient * density * area
 
     # ********** Energy computation functions *************************************
     def velocityFromEnergyWithDrag(m, x, E, k):
